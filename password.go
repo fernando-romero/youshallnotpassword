@@ -80,12 +80,10 @@ func (password Password) ReplaceFirst(fn IsTypeFn, r rune) Password {
 }
 
 func (password Password) Strengthen() Password {
-
 	alphaCount := password.AlphaCount()
 	digitCount := password.DigitCount()
 	delimiterCount := password.DelimiterCount()
 	otherCount := password.OtherCount()
-
 	if alphaCount == 0 {
 		r := randomRune(alphas)
 		if digitCount > 1 {
@@ -98,7 +96,6 @@ func (password Password) Strengthen() Password {
 			return password.ReplaceFirst(isOther, r)
 		}
 	}
-
 	if digitCount == 0 {
 		r := randomRune(digits)
 		if alphaCount > 1 {
@@ -111,7 +108,6 @@ func (password Password) Strengthen() Password {
 			return password.ReplaceFirst(isOther, r)
 		}
 	}
-
 	if delimiterCount == 0 {
 		r := randomRune(delimiters)
 		if alphaCount > 1 {
@@ -124,7 +120,6 @@ func (password Password) Strengthen() Password {
 			return password.ReplaceFirst(isOther, r)
 		}
 	}
-
 	if otherCount == 0 {
 		r := randomRune(others)
 		if alphaCount > 1 {
@@ -137,7 +132,6 @@ func (password Password) Strengthen() Password {
 			return password.ReplaceFirst(isDelimiter, r)
 		}
 	}
-
 	return password.AddChar()
 }
 

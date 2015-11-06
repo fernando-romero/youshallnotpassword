@@ -37,28 +37,24 @@ func init() {
 func main() {
 	password := Password(os.Args[1])
 	strength := password.Strength()
-	log.Printf("Password: %s", string(password))
-	log.Printf("Strength: %d", strength)
-
+	log.Printf("PASSWORD: %s", string(password))
+	log.Printf("STRENGTH: %d", strength)
 	if strength >= 50 {
-		log.Println("Category: STRONG")
-		log.Println("Message: Congratulations, you shall password!")
+		log.Println("CATEGORY: STRONG")
+		log.Println("MESSAGE:  Congratulations, you shall password!")
 		return
 	}
-
 	if strength <= 10 {
-		log.Println("Category: UNACCEPTABLE")
-		log.Println("Message: You shall not password! Please try again with a better password")
+		log.Println("CATEGORY: UNACCEPTABLE")
+		log.Println("MESSAGE:  You shall not password! Please try again with a better password")
 		return
 	}
-
-	log.Println("Category: WEAK")
-	log.Println("Message: There is still hope, we will give you a better password here")
-
+	log.Println("CATEGORY: WEAK")
+	log.Println("MESSAGE:  There is still hope, we will give you a better password here")
 	for strength < 50 {
 		password = password.Strengthen()
 		strength = password.Strength()
 	}
-	log.Printf("Password: %s", string(password))
-	log.Printf("Strength: %d", strength)
+	log.Printf("PASSWORD: %s", string(password))
+	log.Printf("STRENGTH: %d", strength)
 }
