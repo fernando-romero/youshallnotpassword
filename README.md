@@ -1,7 +1,7 @@
 # youshallnotpassword
 Password strenght evaluator
 
-## Hot to use
+## How to use
 youshallnotpassword is a command line application. To evaluate a password just run:
 
 ```shell
